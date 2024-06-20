@@ -26,10 +26,7 @@
 
     <script>
         function loadMonitorData() {
-            const corsAnywhere = 'https://cors-anywhere.herokuapp.com/';
-            const targetUrl = 'https://newreporting.hamnair.ca/ChartDataQueryHelper.aspx/GeParamatersCollectedOn';
-
-            fetch(corsAnywhere + targetUrl, {
+            fetch("http://localhost:3000/proxy", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json; charset=utf-8'
