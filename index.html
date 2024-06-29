@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Environmental Standards Table</title>
+    <title>Standards Table</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
         }
         th, td {
-            border: 1px solid #ddd;
+            border: 1px solid black;
             padding: 8px;
+            text-align: left;
         }
         th {
             background-color: #f2f2f2;
@@ -25,81 +21,408 @@
             table, thead, tbody, th, td, tr {
                 display: block;
             }
-            th, td {
-                width: 100%;
-                box-sizing: border-box;
-            }
-            th {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
+            thead tr {
+                display: none;
             }
             tr {
-                margin-bottom: 10px;
+                margin-bottom: 1rem;
             }
             td {
                 border: none;
+                padding: 8px;
                 position: relative;
                 padding-left: 50%;
-                text-align: right;
             }
-            td:before {
-                content: attr(data-label);
+            td::before {
                 position: absolute;
-                left: 10px;
-                width: calc(50% - 20px);
-                white-space: nowrap;
-                text-align: left;
+                top: 0;
+                left: 0;
+                width: 50%;
+                padding-left: 8px;
                 font-weight: bold;
+                background-color: #f2f2f2;
+                border-right: 1px solid black;
+                white-space: nowrap;
             }
+            td:nth-of-type(1)::before { content: "Parameter"; }
+            td:nth-of-type(2)::before { content: "Type"; }
+            td:nth-of-type(3)::before { content: "Average Period"; }
+            td:nth-of-type(4)::before { content: "Average Type"; }
+            td:nth-of-type(5)::before { content: "Value"; }
+            td:nth-of-type(6)::before { content: "Units"; }
         }
     </style>
 </head>
 <body>
-
-<h1>Ministry of the Environment, Conservation and Parks</h1>
-<h2>O. Reg. 419/05 Standards, Guidelines and Upper Risk Thresholds</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>Parameter</th>
-            <th>Type</th>
-            <th>Average Period</th>
-            <th>Average Type</th>
-            <th>Value</th>
-            <th>Units</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td data-label="Parameter">Sulphur Dioxide</td>
-            <td data-label="Type">SO2</td>
-            <td data-label="Average Period">AAQC</td>
-            <td data-label="Average Type">10 Min</td>
-            <td data-label="Value">67</td>
-            <td data-label="Units">ppb</td>
-        </tr>
-        <!-- Repeat similar rows for all other parameters -->
-        <tr>
-            <td data-label="Parameter">Sulphur Dioxide</td>
-            <td data-label="Type">SO2</td>
-            <td data-label="Average Period">AAQC</td>
-            <td data-label="Average Type">1 Hr</td>
-            <td data-label="Value">40</td>
-            <td data-label="Units">ppb</td>
-        </tr>
-        <!-- Continue for each row from your provided data -->
-    </tbody>
-</table>
-
-<p><strong>Standard Sch 3:</strong> O. Reg. 419/05 Schedule 3 Standard</p>
-<p><strong>Guideline:</strong> MECP Guideline</p>
-<p><strong>URT Sch 6:</strong> O. Reg. 419/05 Schedule 6 Upper Risk Threshold</p>
-<p><strong>RT:</strong> MECP Reportable Threshold</p>
-<p><strong>AAQC:</strong> MECP Ambient Air Quality Criteria</p>
-<p><strong>SP ½ Hr Standard (100 µg/m3):</strong> PM10 data used as surrogate for SP &lt; 44 µm</p>
-<p><strong>CAAQS:</strong> Canadian Ambient Air Quality Standards</p>
-
+    <table>
+        <caption>Ministry of the Environment, Conservation and Parks<br>O. Reg. 419/05 Standards, Guidelines and Upper Risk Thresholds</caption>
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Average Period</th>
+                <th>Average Type</th>
+                <th>Value</th>
+                <th>Units</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Sulphur Dioxide</td>
+                <td>SO2</td>
+                <td>AAQC</td>
+                <td>10 Min</td>
+                <td>Running</td>
+                <td>67</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Sulphur Dioxide</td>
+                <td>SO2</td>
+                <td>AAQC</td>
+                <td>1 Hr</td>
+                <td>Running</td>
+                <td>40</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Sulphur Dioxide</td>
+                <td>SO2</td>
+                <td>Standard Sch 3</td>
+                <td>1 Hr</td>
+                <td>Running</td>
+                <td>40</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Sulphur Dioxide</td>
+                <td>SO2</td>
+                <td>URT Sch 6</td>
+                <td>½ Hr</td>
+                <td>Running</td>
+                <td>300</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Sulphur Dioxide</td>
+                <td>SO2</td>
+                <td>URT Sch 6</td>
+                <td>1 Hr</td>
+                <td>Running</td>
+                <td>250</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Total Reduced Sulphur</td>
+                <td>TRS</td>
+                <td>Standard Sch 3</td>
+                <td>10 Min</td>
+                <td>Running</td>
+                <td>9</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Total Reduced Sulphur</td>
+                <td>TRS</td>
+                <td>RT</td>
+                <td>1 Hr</td>
+                <td>Clock</td>
+                <td>10</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Total Reduced Sulphur</td>
+                <td>TRS</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Running</td>
+                <td>4</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Total Reduced Sulphur</td>
+                <td>TRS</td>
+                <td>URT Sch 6</td>
+                <td>½ Hr</td>
+                <td>Running</td>
+                <td>143</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Total Reduced Sulphur</td>
+                <td>TRS</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Running</td>
+                <td>48</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Nitrogen Dioxide</td>
+                <td>NO2</td>
+                <td>AAQC</td>
+                <td>1 Hr</td>
+                <td>Running</td>
+                <td>200</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Nitrogen Dioxide</td>
+                <td>NO2</td>
+                <td>AAQC</td>
+                <td>24 Hr</td>
+                <td>Running</td>
+                <td>100</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Oxides of Nitrogen</td>
+                <td>NOx</td>
+                <td>Standard Sch 3</td>
+                <td>1 Hr</td>
+                <td>Running</td>
+                <td>261</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Oxides of Nitrogen</td>
+                <td>NOx</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Running</td>
+                <td>131</td>
+                <td>ppb</td>
+            </tr>
+            <tr>
+                <td>Particulate Matter < 10 µm</td>
+                <td>PM10</td>
+                <td>AAQC</td>
+                <td>24 Hr</td>
+                <td>Running</td>
+                <td>50</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Particulate Matter < 2.5 µm</td>
+                <td>PM2.5</td>
+                <td>CAAQS</td>
+                <td>24 Hr</td>
+                <td>Clock</td>
+                <td>27</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Suspended Particulate < 44 µm</td>
+                <td>SP</td>
+                <td>RT</td>
+                <td>½ Hr</td>
+                <td>Running</td>
+                <td>100</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Suspended Particulate < 44 µm</td>
+                <td>SP</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Running</td>
+                <td>120</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Suspended Particulate < 44 µm</td>
+                <td>TSP</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>120</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Cadmium</td>
+                <td>Cd</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>0.025</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Cadmium</td>
+                <td>Cd</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>0.25</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Chromium</td>
+                <td>Cr</td>
+                <td>Guideline</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>0.5</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Chromium</td>
+                <td>Cr</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>5</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Iron - Ferric Oxide</td>
+                <td>Fe</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>25</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Iron</td>
+                <td>Fe</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>4</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Copper</td>
+                <td>Cu</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>50</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Lead</td>
+                <td>Pb</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>0.5</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Lead</td>
+                <td>Pb</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>2</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Manganese</td>
+                <td>Mn</td>
+                <td>AAQC</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>0.4</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Manganese</td>
+                <td>Mn</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>4</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Nickel</td>
+                <td>Ni</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>0.2</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Nickel</td>
+                <td>Ni</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>2</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Vanadium</td>
+                <td>V</td>
+                <td>Standard Sch 3</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>2</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Benzo [a] Pyrene</td>
+                <td>B[a]P</td>
+                <td>AAQC</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>0.05</td>
+                <td>ng/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Benzo [a] Pyrene</td>
+                <td>B[a]P</td>
+                <td>Ref. Level</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>1.10</td>
+                <td>ng/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Benzo [a] Pyrene</td>
+                <td>B[a]P</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>5.00</td>
+                <td>ng/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Benzene</td>
+                <td>C6H6</td>
+                <td>AAQC</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>2.30</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+            <tr>
+                <td>Benzene</td>
+                <td>C6H6</td>
+                <td>URT Sch 6</td>
+                <td>24 Hr</td>
+                <td>Clock (00:00 - 23:00)</td>
+                <td>100</td>
+                <td>µg/m<sup>3</sup></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7">
+                    <b>Standard Sch 3:</b> O. Reg. 419/05 Schedule 3 Standard<br>
+                    <b>Guideline:</b> MECP Guideline<br>
+                    <b>URT Sch 6:</b> O. Reg. 419/05 Schedule 6 Upper Risk Threshold<br>
+                    <b>RT:</b> MECP Reportable Threshold<br>
+                    <b>AAQC:</b> MECP Ambient Air Quality Criteria<br>
+                    <b>SP ½ Hr Standard (100 µg/m<sup>3</sup>):</b> PM10 data used as surrogate for SP < 44 µm<br>
+                    <b>CAAQS:</b> Canadian Ambient Air Quality Standards
+                </td>
+            </tr>
+        </tfoot>
+    </table>
 </body>
 </html>
